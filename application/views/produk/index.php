@@ -1,4 +1,21 @@
 <div class="container">
+
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <?php if ($this->session->flashdata('flash')) : ?>
+                <div class="alert alert-success" role="alert">
+                Data Produk berhasil <strong><?= $this->session->flashdata('flash'); ?></strong>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <a class="btn btn-primary" href="<?= base_url(); ?>produk/tambah">Tambah Data Produk</a>
+        </div>
+    </div>
+
     <div class="row mt-3">
         <div class="col-md-6">
             <h3>Daftar Produk</h3>
