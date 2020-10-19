@@ -25,4 +25,16 @@ class Produk_model extends CI_Model {
         $query = $this->db->get_where('produk', ['id' => $id]);
         return $query->row_array();
     }
+
+    public function ubahDataProduk(){
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'kategori' => $this->input->post('kategori'),
+            'harga' => $this->input->post('harga'),
+            'deskripsi' => $this->input->post('deskripsi'),
+        ];
+    
+    $this->db->where('id', $this->input->post('id'));
+    $this->db->update('produk', $data);
+    }
 }

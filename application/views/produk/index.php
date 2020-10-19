@@ -23,6 +23,7 @@
                 <?php foreach ($produk as $prk) : ?>
                     <li class="list-group-item"><?= $prk['nama']; ?>
                         <a href="<?= base_url(); ?>produk/hapus/<?= $prk['id']; ?>" class="float-right badge bg-danger" onclick="return confirm('Apakah anda yakin?');">Hapus</a>
+                        <a href="<?= base_url(); ?>produk/ubah/<?= $prk['id']; ?>" class="float-right badge bg-primary">Ubah</a>
                         <a href="<?= base_url(); ?>produk/detail/<?= $prk['id']; ?>" class="float-right badge bg-success">Detail</a>
                     </li>
                 <?php endforeach; ?>

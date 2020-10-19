@@ -47,4 +47,23 @@ class Produk extends CI_Controller {
         $this->load ->view('templates/footer');
     }
 
+    public function ubah($id){
+        $data['judul'] = 'Form Ubah Produk';
+        $data['kategori'] = ['Bangku', 'Meja', 'Kursi', 'Lemari']; 
+        $data['produk'] = $this->Produk_model->getProdukById($id);    
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('harga', 'Harga', 'required|numeric');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
+        if ($this->form_validation->run() == FALSE){
+            $this->load ->view('templates/header', $data);
+            $this->load ->view('produk/ubah', $data);
+            $this->load ->view('templates/footer');
+        }
+        else{
+            $this->Produk_model->ubahDataProduk();
+            $this->session->set_flashdata('flash', 'Diubah!');
+            redirect("produk");
+        }
+    }
+
 }
