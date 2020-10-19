@@ -31,7 +31,12 @@ class Produk extends CI_Controller {
             $this->session->set_flashdata('flash', 'Ditambah!');
             redirect("produk");
         }
-
-        
     }
+
+    public function hapus($id){
+        $this->Produk_model->hapusDataProduk($id);
+        $this->session->set_flashdata('flash', 'Dihapus!');
+        redirect("produk");
+    }
+
 }

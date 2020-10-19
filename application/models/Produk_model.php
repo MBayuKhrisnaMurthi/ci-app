@@ -16,4 +16,8 @@ class Produk_model extends CI_Model {
     
     $this->db->insert('produk', $data);
     }
+
+    public function hapusDataProduk($id){
+        $this->db->delete('produk', ['id' => $id]);
+    }
 }

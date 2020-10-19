@@ -21,7 +21,9 @@
             <h3>Daftar Produk</h3>
             <ul class="list-group">
                 <?php foreach ($produk as $prk) : ?>
-                    <li class="list-group-item"><?= $prk['nama']; ?></li>
+                    <li class="list-group-item"><?= $prk['nama']; ?>
+                        <a href="<?= base_url(); ?>produk/hapus/<?= $prk['id']; ?>" class="float-right badge bg-danger" onclick="return confirm('Apakah anda yakin?');">Hapus</a>
+                    </li>
                 <?php endforeach; ?>
             </ul>
         </div>
