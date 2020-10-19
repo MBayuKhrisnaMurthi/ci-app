@@ -20,4 +20,9 @@ class Produk_model extends CI_Model {
     public function hapusDataProduk($id){
         $this->db->delete('produk', ['id' => $id]);
     }
+
+    public function getProdukById($id){
+        $query = $this->db->get_where('produk', ['id' => $id]);
+        return $query->row_array();
+    }
 }
