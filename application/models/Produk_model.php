@@ -37,4 +37,10 @@ class Produk_model extends CI_Model {
     $this->db->where('id', $this->input->post('id'));
     $this->db->update('produk', $data);
     }
+
+    public function cariDataProduk(){
+        $katacari = $this->input->post('katacari');
+        $this->db->like('nama', $katacari);
+        $this->db->or_like('kategori', $katacari);
+    }
 }

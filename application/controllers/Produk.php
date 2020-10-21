@@ -8,6 +8,9 @@ class Produk extends CI_Controller {
     }
 
     public function index(){
+        if ($this->input->post('katacari')) {
+            $data['produk'] = $this->Produk_model->cariDataProduk();
+        }
         $data['judul'] = 'Daftar Produk';
         $data['produk'] = $this->Produk_model->getAllProduk();
         $this->load ->view('templates/header', $data);
